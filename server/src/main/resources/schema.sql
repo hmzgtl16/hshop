@@ -1,4 +1,6 @@
-CREATE TABLE IF NOT EXISTS users (
+CREATE SCHEMA IF NOT EXISTS hshop;
+
+CREATE TABLE IF NOT EXISTS hshop.users (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     email VARCHAR(255) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
@@ -9,7 +11,7 @@ CREATE TABLE IF NOT EXISTS users (
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE IF NOT EXISTS categories (
+CREATE TABLE IF NOT EXISTS hshop.categories (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     name VARCHAR(200) NOT NULL,
     description TEXT,
@@ -19,7 +21,7 @@ CREATE TABLE IF NOT EXISTS categories (
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE IF NOT EXISTS products (
+CREATE TABLE IF NOT EXISTS hshop.products (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     name VARCHAR(200) NOT NULL,
     description TEXT,
@@ -33,13 +35,13 @@ CREATE TABLE IF NOT EXISTS products (
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE IF NOT EXISTS carts (
+CREATE TABLE IF NOT EXISTS hshop.carts (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     user_id UUID UNIQUE NOT NULL REFERENCES users(id) ON DELETE CASCADE,
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE IF NOT EXISTS cart_items (
+CREATE TABLE IF NOT EXISTS hshop.cart_items (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     cart_id UUID NOT NULL REFERENCES carts(id) ON DELETE CASCADE,
     product_id UUID NOT NULL REFERENCES products(id),
@@ -50,7 +52,7 @@ CREATE TABLE IF NOT EXISTS cart_items (
     UNIQUE(cart_id, product_id)
 );
 
-CREATE TABLE IF NOT EXISTS orders (
+CREATE TABLE IF NOT EXISTS hshop.orders (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     user_id UUID NOT NULL REFERENCES users(id),
     total_amount DECIMAL(10, 2) NOT NULL,
@@ -65,7 +67,7 @@ CREATE TABLE IF NOT EXISTS orders (
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE IF NOT EXISTS order_items (
+CREATE TABLE IF NOT EXISTS hshop.order_items (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     order_id UUID NOT NULL REFERENCES orders(id) ON DELETE CASCADE,
     product_id UUID NOT NULL REFERENCES products(id),
@@ -76,11 +78,11 @@ CREATE TABLE IF NOT EXISTS order_items (
 );
 
 -- Indexes for better query performance
-CREATE INDEX IF NOT EXISTS idx_products_category ON products(category_id);
-CREATE INDEX IF NOT EXISTS idx_products_sku ON products(sku);
-CREATE INDEX IF NOT EXISTS idx_products_active ON products(is_active);
-CREATE INDEX IF NOT EXISTS idx_cart_items_cart ON cart_items(cart_id);
-CREATE INDEX IF NOT EXISTS idx_order_items_order ON order_items(order_id);
-CREATE INDEX IF NOT EXISTS idx_orders_user ON orders(user_id);
-CREATE INDEX IF NOT EXISTS idx_orders_status ON orders(status);
-CREATE INDEX IF NOT EXISTS idx_orders_created ON orders(created_at);
+CREATE INDEX IF NOT EXISTS idx_products_category ON hshop.products(category_id);
+CREATE INDEX IF NOT EXISTS idx_products_sku ON hshop.products(sku);
+CREATE INDEX IF NOT EXISTS idx_products_active ON hshop.products(is_active);
+CREATE INDEX IF NOT EXISTS idx_cart_items_cart ON hshop.cart_items(cart_id);
+CREATE INDEX IF NOT EXISTS idx_order_items_order ON hshop.order_items(order_id);
+CREATE INDEX IF NOT EXISTS idx_orders_user ON hshop.orders(user_id);
+CREATE INDEX IF NOT EXISTS idx_orders_status ON hshop.orders(status);
+CREATE INDEX IF NOT EXISTS idx_orders_created ON hshop.orders(created_at);
