@@ -1,0 +1,10 @@
+services:
+  db:
+    container_name: 'db'
+    image: 'postgres:latest'
+    environment:
+      - 'POSTGRES_DB=hshop_db'
+      - 'POSTGRES_PASSWORD=hshop_password'
+      - 'POSTGRES_USER=hshop_user'
+    ports:
+      - '5432:5432'
