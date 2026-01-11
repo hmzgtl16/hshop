@@ -9,7 +9,7 @@ object DtoValidators {
 
         val emailValidation = Validators.validateEmail(request.email)
         if (!emailValidation.isValid()) {
-            errors.addAll(emailValidation.getErrors())
+            errors.addAll(emailValidation.getValidationErrors())
         }
 
         if (request.password.isBlank()) {
@@ -24,22 +24,22 @@ object DtoValidators {
 
         val emailValidation = Validators.validateEmail(request.email)
         if (!emailValidation.isValid()) {
-            errors.addAll(emailValidation.getErrors())
+            errors.addAll(emailValidation.getValidationErrors())
         }
 
         val passwordValidation = Validators.validatePassword(request.password)
         if (!passwordValidation.isValid()) {
-            errors.addAll(passwordValidation.getErrors())
+            errors.addAll(passwordValidation.getValidationErrors())
         }
 
         val firstNameValidation = Validators.validateName(request.firstName, "First name")
         if (!firstNameValidation.isValid()) {
-            errors.addAll(firstNameValidation.getErrors())
+            errors.addAll(firstNameValidation.getValidationErrors())
         }
 
         val lastNameValidation = Validators.validateName(request.lastName, "Last name")
         if (!lastNameValidation.isValid()) {
-            errors.addAll(lastNameValidation.getErrors())
+            errors.addAll(lastNameValidation.getValidationErrors())
         }
 
         return if (errors.isEmpty()) ValidationResult.Valid else ValidationResult.Invalid(errors)
@@ -50,32 +50,32 @@ object DtoValidators {
 
         val nameValidation = Validators.validateName(request.name, "Product name")
         if (!nameValidation.isValid()) {
-            errors.addAll(nameValidation.getErrors())
+            errors.addAll(nameValidation.getValidationErrors())
         }
 
         val descriptionValidation = Validators.validateDescription(request.description, "Product description")
         if (!descriptionValidation.isValid()) {
-            errors.addAll(descriptionValidation.getErrors())
+            errors.addAll(descriptionValidation.getValidationErrors())
         }
 
         val priceValidation = Validators.validatePrice(request.price)
         if (!priceValidation.isValid()) {
-            errors.addAll(priceValidation.getErrors())
+            errors.addAll(priceValidation.getValidationErrors())
         }
 
         val stockValidation = Validators.validateStockQuantity(request.stockQuantity)
         if (!stockValidation.isValid()) {
-            errors.addAll(stockValidation.getErrors())
+            errors.addAll(stockValidation.getValidationErrors())
         }
 
         val skuValidation = Validators.validateSKU(request.sku)
         if (!skuValidation.isValid()) {
-            errors.addAll(skuValidation.getErrors())
+            errors.addAll(skuValidation.getValidationErrors())
         }
 
         val imageValidation = Validators.validateImageUrls(request.imageUrls)
         if (!imageValidation.isValid()) {
-            errors.addAll(imageValidation.getErrors())
+            errors.addAll(imageValidation.getValidationErrors())
         }
 
         if (request.categoryId.isBlank()) {
@@ -91,35 +91,35 @@ object DtoValidators {
         request.name?.let {
             val nameValidation = Validators.validateName(it, "Product name")
             if (!nameValidation.isValid()) {
-                errors.addAll(nameValidation.getErrors())
+                errors.addAll(nameValidation.getValidationErrors())
             }
         }
 
         request.description?.let {
             val descriptionValidation = Validators.validateDescription(it, "Product description")
             if (!descriptionValidation.isValid()) {
-                errors.addAll(descriptionValidation.getErrors())
+                errors.addAll(descriptionValidation.getValidationErrors())
             }
         }
 
         request.price?.let {
             val priceValidation = Validators.validatePrice(it)
             if (!priceValidation.isValid()) {
-                errors.addAll(priceValidation.getErrors())
+                errors.addAll(priceValidation.getValidationErrors())
             }
         }
 
         request.stockQuantity?.let {
             val stockValidation = Validators.validateStockQuantity(it)
             if (!stockValidation.isValid()) {
-                errors.addAll(stockValidation.getErrors())
+                errors.addAll(stockValidation.getValidationErrors())
             }
         }
 
         request.imageUrls?.let {
             val imageValidation = Validators.validateImageUrls(it)
             if (!imageValidation.isValid()) {
-                errors.addAll(imageValidation.getErrors())
+                errors.addAll(imageValidation.getValidationErrors())
             }
         }
 
@@ -131,7 +131,7 @@ object DtoValidators {
 
         val nameValidation = Validators.validateName(request.name, "Category name")
         if (!nameValidation.isValid()) {
-            errors.addAll(nameValidation.getErrors())
+            errors.addAll(nameValidation.getValidationErrors())
         }
 
         if (request.description.isBlank()) {
@@ -149,7 +149,7 @@ object DtoValidators {
         request.name?.let {
             val nameValidation = Validators.validateName(it, "Category name")
             if (!nameValidation.isValid()) {
-                errors.addAll(nameValidation.getErrors())
+                errors.addAll(nameValidation.getValidationErrors())
             }
         }
 
@@ -173,7 +173,7 @@ object DtoValidators {
 
         val quantityValidation = Validators.validateQuantity(request.quantity)
         if (!quantityValidation.isValid()) {
-            errors.addAll(quantityValidation.getErrors())
+            errors.addAll(quantityValidation.getValidationErrors())
         }
 
         return if (errors.isEmpty()) ValidationResult.Valid else ValidationResult.Invalid(errors)
@@ -196,7 +196,7 @@ object DtoValidators {
 
         val addressValidation = Validators.validateAddress(request.shippingAddress)
         if (!addressValidation.isValid()) {
-            errors.addAll(addressValidation.getErrors())
+            errors.addAll(addressValidation.getValidationErrors())
         }
 
         if (request.paymentMethod.isBlank()) {
