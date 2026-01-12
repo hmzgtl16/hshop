@@ -45,6 +45,7 @@ org-springframework-boot-starter-kotlinx-serialization-json = { group = "org.spr
 org-springframework-boot-starter-kotlinx-serialization-json-test = { group = "org.springframework.boot", name = "spring-boot-starter-kotlinx-serialization-json-test" }
 org-springframework-boot-starter-security = { group = "org.springframework.boot", name = "spring-boot-starter-security" }
 org-springframework-boot-starter-security-test = { group = "org.springframework.boot", name = "spring-boot-starter-security-test" }
+org-springframework-boot-starter-validation = { group = "org.springframework.boot", name = "spring-boot-starter-validation" }
 org-springframework-boot-starter-webmvc = { group = "org.springframework.boot", name = "spring-boot-starter-webmvc" }
 org-springframework-boot-starter-webmvc-test = { group = "org.springframework.boot", name = "spring-boot-starter-webmvc-test" }
 

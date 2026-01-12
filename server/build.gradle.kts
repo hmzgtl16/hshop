@@ -20,6 +20,7 @@ dependencies {
     implementation(libs.org.springframework.boot.starter.webmvc)
     implementation(libs.org.springframework.boot.starter.data.jdbc)
     implementation(libs.org.springframework.boot.starter.security)
+    implementation(libs.org.springframework.boot.starter.validation)
     implementation(libs.org.springframework.boot.starter.kotlinx.serialization.json)
     implementation(libs.org.jetbrains.kotlin.reflect)
     runtimeOnly(libs.org.postgresql)
