@@ -1,5 +1,6 @@
-package com.example.hshop.api.entity
+package com.example.hshop.api.product.domain
 
+import com.example.hshop.dto.ProductDto
 import org.springframework.data.annotation.CreatedDate
 import org.springframework.data.annotation.Id
 import org.springframework.data.annotation.LastModifiedDate
@@ -9,7 +10,7 @@ import java.time.Instant
 import java.util.UUID
 
 @Table("products")
-data class ProductEntity(
+data class Product(
     @Id
     val id: UUID? = null,
 
@@ -45,18 +46,4 @@ data class ProductEntity(
     @LastModifiedDate
     @Column("updated_at")
     val updatedAt: Instant = Instant.now()
-) {
-    fun getImageUrlsList(): List<String> {
-        return if (imageUrls.isBlank()) emptyList()
-        else imageUrls.removeSurrounding("[", "]")
-            .split(",")
-            .map { it.trim().removeSurrounding("\"") }
-            .filter { it.isNotBlank() }
-    }
-
-    companion object {
-        fun fromImageUrlsList(urls: List<String>): String {
-            return urls.joinToString(",", "[", "]") { "\"$it\"" }
-        }
-    }
-}
+)

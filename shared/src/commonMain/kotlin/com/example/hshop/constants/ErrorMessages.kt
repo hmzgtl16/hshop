@@ -23,6 +23,18 @@ object ErrorMessages {
     const val WEAK_PASSWORD = "Password does not meet requirements"
 
     // Product errors
+    const val PRODUCT_NAME_NOT_BLANK = "Product name cannot be blank"
+    const val PRODUCT_NAME_SIZE_CONSTRAINT = "Product name must be between 3 and 100 characters long"
+    const val PRODUCT_DESCRIPTION_NOT_BLANK = "Product description cannot be blank"
+    const val PRODUCT_DESCRIPTION_SIZE_CONSTRAINT = "Product description must be between 10 and 5000 characters long"
+    const val PRODUCT_PRICE_NOT_BLANK = "Product price cannot be blank"
+    const val PRODUCT_PRICE_POSITIVE = "Product price must be positive"
+    const val PRODUCT_SKU_NOT_BLANK = "Product SKU cannot be blank"
+    const val PRODUCT_SKU_SIZE_CONSTRAINT = "Product SKU must be between 3 and 50 characters long"
+    const val PRODUCT_STOCK_QUANTITY_NOT_BLANK = "Product stock quantity cannot be blank"
+    const val PRODUCT_STOCK_QUANTITY_POSITIVE = "Product stock quantity must be positive"
+    const val PRODUCT_IMAGES_NUMBER_CONSTRAINT = "Product must have between 0 and 10 images"
+    const val PRODUCT_CATEGORY_NOT_BLANK = "Product category cannot be blank"
     const val PRODUCT_NOT_FOUND = "Product not found"
     const val PRODUCT_OUT_OF_STOCK = "Product is out of stock"
     const val INSUFFICIENT_STOCK = "Insufficient stock available"
