@@ -5,10 +5,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class ProductSearchRequest(
     val query: String? = null,
-    val categoryId: String? = null,
-    val minPrice: Double? = null,
-    val maxPrice: Double? = null,
-    val inStock: Boolean? = null,
-    val page: Int = 0,
-    val size: Int = 20
+    val minPrice: Double = 0.0,
+    val maxPrice: Double = Double.MAX_VALUE,
+    val inStock: Boolean = false,
 )

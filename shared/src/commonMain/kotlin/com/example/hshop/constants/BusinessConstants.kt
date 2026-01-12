@@ -22,13 +22,14 @@ object BusinessConstants {
     const val MAX_PASSWORD_LENGTH = 100
 
     // Product constraints
-    const val MIN_PRODUCT_NAME_LENGTH = 3
-    const val MAX_PRODUCT_NAME_LENGTH = 200
-    const val MIN_DESCRIPTION_LENGTH = 10
-    const val MAX_DESCRIPTION_LENGTH = 5000
-    const val MAX_PRODUCT_IMAGES = 10
-    const val MIN_PRODUCT_PRICE = 0.01
-    const val MAX_PRODUCT_PRICE = 1000000.0
+    const val PRODUCT_NAME_MIN_LENGTH = 3
+    const val PRODUCT_NAME_MAX_LENGTH = 100
+    const val PRODUCT_DESCRIPTION_MIN_LENGTH = 10
+    const val PRODUCT_DESCRIPTION_MAX_LENGTH = 5000
+    const val PRODUCT_SKU_MIN_LENGTH = 3
+    const val PRODUCT_SKU_MAX_LENGTH = 50
+    const val PRODUCT_IMAGES_MIN_NUMBER = 0
+    const val PRODUCT_IMAGES_MAX_NUMBER = 10
 
     // Stock management
     const val LOW_STOCK_THRESHOLD = 10
