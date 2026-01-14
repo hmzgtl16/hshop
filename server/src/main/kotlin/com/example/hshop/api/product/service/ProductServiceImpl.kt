@@ -79,7 +79,7 @@ class ProductServiceImpl(
         categoryId: UUID,
         pageable: Pageable
     ): Page<ProductDto> = productRepository
-        .findByCategoryId(categoryId, pageable)
+        .findAllByCategoryId(categoryId, pageable)
         .map(productMapper::toDto)
 
     @Transactional(readOnly = true)
