@@ -44,6 +44,10 @@ object ErrorMessages {
     const val INVALID_STOCK_QUANTITY = "Invalid stock quantity"
 
     // Category errors
+    const val CATEGORY_NAME_NOT_BLANK = "Category name cannot be blank"
+    const val CATEGORY_NAME_SIZE_CONSTRAINT = "Category name must be between 2 and 100 characters long"
+    const val CATEGORY_DESCRIPTION_NOT_BLANK = "Category description cannot be blank"
+    const val CATEGORY_DESCRIPTION_SIZE_CONSTRAINT = "Category description must be between 10 and 500 characters long"
     const val CATEGORY_NOT_FOUND = "Category not found"
     const val CATEGORY_HAS_PRODUCTS = "Cannot delete category with existing products"
     const val CATEGORY_HAS_SUBCATEGORIES = "Cannot delete category with existing subcategories"
