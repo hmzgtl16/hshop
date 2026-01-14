@@ -37,8 +37,10 @@ object BusinessConstants {
     const val MAX_STOCK_QUANTITY = 100000
 
     // Category constraints
-    const val MIN_CATEGORY_NAME_LENGTH = 2
-    const val MAX_CATEGORY_NAME_LENGTH = 100
+    const val CATEGORY_NAME_MIN_LENGTH = 2
+    const val CATEGORY_NAME_MAX_LENGTH = 100
+    const val CATEGORY_DESCRIPTION_MIN_LENGTH = 10
+    const val CATEGORY_DESCRIPTION_MAX_LENGTH = 500
     const val MAX_CATEGORY_DEPTH = 5
 
     // SKU format

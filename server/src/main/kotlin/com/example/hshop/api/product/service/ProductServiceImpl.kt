@@ -8,7 +8,7 @@ import com.example.hshop.api.product.api.dto.ProductSearchRequest
 import com.example.hshop.api.product.api.dto.UpdateProductRequest
 import com.example.hshop.api.product.domain.ProductRepository
 import com.example.hshop.api.product.mapping.ProductMapper
-import com.example.hshop.api.repository.CategoryRepository
+import com.example.hshop.api.category.domain.CategoryRepository
 import com.example.hshop.constants.ErrorMessages
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
@@ -79,7 +79,7 @@ class ProductServiceImpl(
         categoryId: UUID,
         pageable: Pageable
     ): Page<ProductDto> = productRepository
-        .findByCategoryId(categoryId, pageable)
+        .findAllByCategoryId(categoryId, pageable)
         .map(productMapper::toDto)
 
     @Transactional(readOnly = true)

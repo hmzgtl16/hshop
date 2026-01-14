@@ -1,4 +1,4 @@
-package com.example.hshop.api.entity
+package com.example.hshop.api.category.domain
 
 import org.springframework.data.annotation.CreatedDate
 import org.springframework.data.annotation.Id
@@ -9,7 +9,7 @@ import java.time.Instant
 import java.util.UUID
 
 @Table("categories")
-data class CategoryEntity(
+data class Category(
     @Id
     val id: UUID? = null,
 

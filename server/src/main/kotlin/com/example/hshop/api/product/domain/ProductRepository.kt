@@ -22,5 +22,5 @@ interface ProductRepository : CrudRepository<Product, UUID>, PagingAndSortingRep
         pageable: Pageable
     ): Page<Product>
 
-    fun findByCategoryId(categoryId: UUID, pageable: Pageable): Page<Product>
+    fun findAllByCategoryId(categoryId: UUID, pageable: Pageable): Page<Product>
 }
